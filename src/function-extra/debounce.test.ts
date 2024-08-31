@@ -1,5 +1,5 @@
+import { sleep } from '../async-tools/sleep';
 import { debounce } from './debounce';
-import { sleep } from './sleep';
 
 test('smoke test', async () => {
   let seq = 0;

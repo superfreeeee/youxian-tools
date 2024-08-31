@@ -1,5 +1,5 @@
+import { sleep } from '../async-tools/sleep';
 import { throttle } from './throttle';
-import { sleep } from './sleep';
 
 test('smoke test', async () => {
   let seq = 0;
