@@ -1,6 +1,6 @@
 {
-  "name": "tools",
-  "version": "0.0.0",
+  "name": "@youxian/tools",
+  "version": "0.0.1-beta.1",
   "description": "",
   "main": "dist/youxian-tools.mjs",
   "type": "module",
