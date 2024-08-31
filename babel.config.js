@@ -13,5 +13,6 @@ module.exports = {
     ['@babel/preset-env', { modules: babelModules }],
     '@babel/preset-typescript',
   ],
+  plugins: ['@babel/plugin-transform-runtime'],
   ignore: ['**/__tests__', '**/*.test.ts', '**/*.test.tsx'],
 };
