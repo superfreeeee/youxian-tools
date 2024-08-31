@@ -1,6 +1,6 @@
 {
   "name": "@youxian/tools",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "description": "",
   "main": "dist/youxian-tools.mjs",
   "type": "module",
@@ -9,7 +9,9 @@
     "build:watch": "vite build --watch",
     "test": "vitest --run",
     "test:watch": "vitest",
-    "release": "rm -rf ./dist && pnpm build && pnpm publish"
+    "prerelease": "rm -rf ./dist && pnpm build",
+    "release": "pnpm publish",
+    "release:beta": "pnpm publish --tag beta"
   },
   "keywords": [],
   "author": "",
