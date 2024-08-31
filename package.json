@@ -1,6 +1,6 @@
 {
   "name": "@youxian/tools",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "description": "",
   "main": "dist/youxian-tools.mjs",
   "type": "module",
@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:watch": "vite build --watch",
     "test": "vitest --run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "release": "rm -rf ./dist && pnpm build && pnpm publish"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +18,9 @@
     "@types/node": "^20.14.2",
     "vite": "^5.2.13",
     "vitest": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9.4.0"
   }
 }
