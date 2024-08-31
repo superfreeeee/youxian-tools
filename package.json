@@ -2,23 +2,34 @@
   "name": "@youxian/tools",
   "version": "0.0.1-beta.3",
   "description": "",
-  "main": "dist/youxian-tools.mjs",
-  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": {
+      "default": "./lib/esm/index.js",
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js"
+    }
+  },
   "scripts": {
-    "build": "vite build",
-    "build:watch": "vite build --watch",
+    "prebuild": "rm -rf ./lib",
+    "build": "pnpm build:esm && pnpm build:cjs",
+    "build:esm": "BABEL_FORMAT=esm babel src/ -d lib/esm/ -x .ts,.tsx --config-file ./babel.config.js",
+    "build:cjs": "BABEL_FORMAT=cjs babel src/ -d lib/cjs/ -x .ts,.tsx --config-file ./babel.config.js",
     "test": "vitest --run",
     "test:watch": "vitest",
-    "prerelease": "rm -rf ./dist && pnpm build",
-    "release": "pnpm publish",
-    "release:beta": "pnpm publish --tag beta"
+    "release:pre": "pnpm build",
+    "release": "pnpm release:pre && pnpm publish",
+    "release:beta": "pnpm release:pre && pnpm publish --tag beta"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.25.6",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-typescript": "^7.24.7",
     "@types/node": "^20.14.2",
-    "vite": "^5.2.13",
     "vitest": "^1.6.0"
   },
   "engines": {
