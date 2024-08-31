@@ -1,4 +1,3 @@
-import { describe, test, expect } from 'vitest';
 import { defer } from './defer';
 
 describe('defer tests', () => {

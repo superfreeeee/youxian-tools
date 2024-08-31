@@ -1,4 +1,3 @@
-import { test, expect } from 'vitest';
 import { HashMutex } from './HashMutex';
 
 test('smoke test', () => {

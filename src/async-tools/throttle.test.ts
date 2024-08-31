@@ -1,4 +1,3 @@
-import { test, expect } from 'vitest';
 import { throttle } from './throttle';
 import { sleep } from './sleep';
 

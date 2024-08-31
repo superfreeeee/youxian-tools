@@ -1,4 +1,3 @@
-import { test, expect } from 'vitest';
 import { sleep } from './sleep';
 
 test('smoke test', async () => {

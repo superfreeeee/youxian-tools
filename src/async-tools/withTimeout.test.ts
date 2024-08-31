@@ -1,13 +1,10 @@
-import { test, expect } from 'vitest';
-import { sleep } from './sleep';
+import { TimeoutError } from '../common/TimeoutError';
+
 import { withTimeout } from './withTimeout';
+import { sleep } from './sleep';
 
 test('smoke test', () => {
-  const task = async () => {
-    await sleep(10);
-  };
-
-  expect(() => withTimeout(task(), 5)).rejects.toEqual({ timeout: true });
+  expect(() => withTimeout(sleep(10), 5)).rejects.toThrow(TimeoutError);
 });
 
 test('resolve first', async () => {

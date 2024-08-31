@@ -1,4 +1,3 @@
-import { test, expect } from 'vitest';
 import { debounce } from './debounce';
 import { sleep } from './sleep';
 

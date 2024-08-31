@@ -1,3 +1,5 @@
+import { TimeoutError } from '../common/TimeoutError';
+
 export type Deferred<T, E = any> = Promise<T> & {
   resolve: (value: T | PromiseLike<T>) => void;
   reject: (reason?: E) => void;
@@ -8,6 +10,9 @@ export type DeferOptions = {
   timeout?: number;
 };
 
+/**
+ * Create deferred Promise
+ */
 export const defer = <T, E extends Error = Error>({ timeout }: DeferOptions = {}): Deferred<T, E> => {
   let _resolve: any, _reject: any; // ignore type check
   const deferred = new Promise<T>((resolve, reject) => {
@@ -15,9 +20,7 @@ export const defer = <T, E extends Error = Error>({ timeout }: DeferOptions = {}
     _reject = reject;
 
     if (timeout != null) {
-      setTimeout(() => {
-        reject(new Error('Deferred timeout rejected'));
-      }, timeout);
+      setTimeout(() => reject(new TimeoutError()), timeout);
     }
   });
   (deferred as Deferred<T, E>).resolve = _resolve;

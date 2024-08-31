@@ -5,4 +5,4 @@ export { withTimeout } from './async-tools/withTimeout';
 
 export { defer } from './defer-promise/defer';
 
-export { type IsExpired, HashMutex } from './mutex-tools/HashMutex';
+export { type IsExpired, HashMutex } from './async-tools/mutex/HashMutex';
