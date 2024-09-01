@@ -13,6 +13,7 @@ export { throttle } from './function-extra/throttle';
 
 export {
   SUPPORT_PERFORMANCE_API,
+  getPerfCompatibility,
   PERF_ORIGIN,
   perfNow,
   perfNowAbs,

@@ -1,3 +1,5 @@
+import { once } from '../function-extra/once';
+
 /**
  * Check current browser support Preformance API
  *
@@ -10,6 +12,21 @@ export const SUPPORT_PERFORMANCE_API = !!(
   window.Performance &&
   window.performance.constructor === window.Performance
 );
+
+/**
+ * Get compatibility table for Performance API
+ */
+export const getPerfCompatibility = once(() => {
+  return {
+    performance: SUPPORT_PERFORMANCE_API,
+    'performance.now': !!performance && typeof performance.now === 'function',
+    'performance.mark': !!performance && typeof performance.mark === 'function',
+    'performance.timeOrigin': !!performance && typeof performance.timeOrigin === 'number',
+    'performance.timing': !!performance && !!performance.timing && typeof performance.timing === 'object',
+    'performance.getEntries': !!performance && typeof performance.getEntries === 'function',
+    'performance.getEntriesByType': !!performance && typeof performance.getEntriesByType === 'function',
+  };
+});
 
 /**
  * Get performance start time
