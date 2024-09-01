@@ -1,6 +1,6 @@
 {
   "name": "@youxian/tools",
-  "version": "0.0.1-beta.8",
+  "version": "0.0.1-beta.9",
   "description": "",
   "author": "superfreeeee <superfreeeee@gmail.com>",
   "license": "MIT",
@@ -17,10 +17,10 @@
     ".": {
       "default": "./lib/esm/index.js",
       "import": "./lib/esm/index.js",
-      "require": "./lib/cjs/index.js"
+      "require": "./lib/cjs/index.js",
+      "types": "./src/index.ts"
     }
   },
-  "types": "./src/index.ts",
   "files": [
     "src",
     "lib",
